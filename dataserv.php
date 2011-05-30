@@ -1,21 +1,23 @@
 <?php
-$br = (php_sapi_name() == "cli")? "":"<br>";
+$ds = new DataServ();
 
-if(!extension_loaded('dataserv')) {
-	dl('dataserv.' . PHP_SHLIB_SUFFIX);
-}
-$module = 'dataserv';
-$functions = get_extension_funcs($module);
-echo "Functions available in the test extension:$br\n";
-foreach($functions as $func) {
-    echo $func."$br\n";
-}
-echo "$br\n";
-$function = 'confirm_' . $module . '_compiled';
-if (extension_loaded($module)) {
-	$str = $function($module);
-} else {
-	$str = "Module $module is not compiled into PHP";
-}
-echo "$str\n";
-?>
+$ds->sethost("127.0.0.1");
+$ds->setuser("root");
+$ds->setpasswd("root");
+$ds->setdb("pw8");
+
+$ds->settable("pw_house_agency");
+$ds->setfields(
+	  array("agencyid"=>"",
+                "name"=>array("int",20,50),
+                "address"=>array("int",20,50),
+	        "icon"=>"icon",
+                "bgimg"=>"bgimg",
+	        "mainbusiness"=>1,
+                "adminname"=>"admin",
+		"isopen"=>1,
+		"vieworder"=>1
+          )
+);
+$ds->create(1,1);
+$ds->loaddata();
