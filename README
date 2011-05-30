@@ -1,1 +1,8 @@
-this is create data priject for php and mysql
+this is create data project for php and mysql
+steps:
+1.sh mkso.h
+2.find php.ini add something follow:
+
+extension=dataserv.so
+
+3.php -f dataserv.php
