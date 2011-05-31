@@ -1,4 +1,4 @@
-this is create data project, use php and mysql
+this is create data project write by php extension
 steps:
 1.download php source code
 2.git clone git@github.com:dataserv/dataserv.git dataserv
