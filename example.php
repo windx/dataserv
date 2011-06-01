@@ -26,7 +26,7 @@ $ds->setfields(
 		"vieworder"=>1
           )
 );
-//create data file
-$ds->create(1,1);
+//create data file (start,end)
+$ds->create(1,10000);
 //load data file into mysql
 $ds->loaddata();
